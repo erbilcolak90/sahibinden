@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @Table(name = "advertcoverimages")
-public class AdvertCoverImages {
+public class AdvertCoverImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

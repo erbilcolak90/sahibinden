@@ -11,8 +11,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "cities")
-public class Cities {
+@Table(name = "advertimages")
+public class AdvertImage {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -24,6 +25,9 @@ public class Cities {
     @Column(name = "updateDate")
     private Date updateDate;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "url")
+    private String url;
+
+    @Column(name = "advertId")
+    private int advertId;
 }

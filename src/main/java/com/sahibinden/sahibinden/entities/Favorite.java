@@ -11,9 +11,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "categories")
-public class Categories {
-
+@Table(name = "favorites")
+public class Favorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -25,6 +24,9 @@ public class Categories {
     @Column(name = "updateDate")
     private Date updateDate;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "advertId")
+    private int advertId;
+
+    @Column(name = "userId")
+    private int userId;
 }
