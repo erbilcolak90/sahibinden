@@ -30,9 +30,4 @@ public interface AdvertDao extends JpaRepository<Advert,Integer> {
     ardından bu metodu AdvertService e yazacağız.
      */
     List<Advert> findAll();
-
-    @Query("From Advert a Full Join a.userId Where a.id=:advertId")
-    List<Advert> getAdvertWithUserDetails(int advertId);
-
-
 }

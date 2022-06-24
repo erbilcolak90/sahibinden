@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -32,6 +33,12 @@ public class AdvertManager implements AdvertService {
      */
     @Override
     public Result add(Advert advert) {
+        advert.setCreateDate(new Date());
+        advert.setUpdateDate(new Date());
+        advert.setFavoriteCount(0);
+        advert.setDeleted(false);
+        advert.setActive(true);
+
         this.advertDao.save(advert);
         return new SuccessResult("advert is uploaded");
     }
@@ -47,9 +54,10 @@ public class AdvertManager implements AdvertService {
     public DataResult<List<Advert>> findAll() {
         return new SuccessDataResult<List<Advert>>("Adverts listed",this.advertDao.findAll());
     }
-
+    /*
     public DataResult<List<Advert>> getAdvertWithUserDetails(int advertId){
         return new SuccessDataResult<List<Advert>>("Advert listed",this.advertDao.getAdvertWithUserDetails(advertId));
     }
+    */
 }
 

@@ -23,8 +23,4 @@ public interface AdvertService {
     Ardından businnes koşullarını belirlemek için AdvertManagerda bu metodu implemente edeceğiz.
      */
     DataResult<List<Advert>> findAll();
-
-
-    DataResult<List<Advert>> getAdvertWithUserDetails(int advertId);
-
 }
