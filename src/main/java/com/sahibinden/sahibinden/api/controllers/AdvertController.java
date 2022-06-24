@@ -15,4 +15,7 @@ public class AdvertController {
     public AdvertController(AdvertService advertService) {
         this.advertService = advertService;
     }
+
+
+    //denneme
 }
