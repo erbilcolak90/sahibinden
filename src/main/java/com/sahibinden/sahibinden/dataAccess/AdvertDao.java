@@ -1,7 +1,11 @@
 package com.sahibinden.sahibinden.dataAccess;
 
+import com.sahibinden.sahibinden.core.utilities.results.DataResult;
 import com.sahibinden.sahibinden.entities.Advert;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 public interface AdvertDao extends JpaRepository<Advert,Integer> {
  /*
@@ -17,4 +21,18 @@ public interface AdvertDao extends JpaRepository<Advert,Integer> {
   5-bu manager içersindeki AdvertDao referansı ve @Autowired annotasyonu içeren constructoru ile
   Dao katmanındaki fonksiyonları kullanacak
     */
+
+
+    /*
+    2.1
+    Database de yer alan advert listesindeki tüm advertleri listeleyip görüntüleyebilmek için JpaRepository 'nin findall
+    metodunu kullanacağız.
+    ardından bu metodu AdvertService e yazacağız.
+     */
+    List<Advert> findAll();
+
+    @Query("From Advert a Full Join a.userId Where a.id=:advertId")
+    List<Advert> getAdvertWithUserDetails(int advertId);
+
+
 }

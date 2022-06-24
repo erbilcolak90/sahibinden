@@ -44,8 +44,9 @@ public class Advert {
     @Column(name = "price")
     private int price;
 
-    @Column(name = "userId")
-    private int userId;
+    @ManyToOne
+    @JoinColumn(name = "userId",referencedColumnName = "id")
+    private User userId;
 
     @Column(name = "cityId")
     private int cityId;
