@@ -1,6 +1,5 @@
 package com.sahibinden.sahibinden.dataAccess;
 
-import com.sahibinden.sahibinden.core.utilities.results.DataResult;
 import com.sahibinden.sahibinden.entities.Advert;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -30,4 +29,7 @@ public interface AdvertDao extends JpaRepository<Advert,Integer> {
     ardından bu metodu AdvertService e yazacağız.
      */
     List<Advert> findAll();
+
+    @Query(value = "SELECT * FROM Advert a RIGHT JOIN User u On u.id=a.userId"+" UNION " +"SELECT * FROM Advert a LEFT JOIN User u On u.id=a.userId",nativeQuery = true)
+    List<Advert> getAdvertWithUserDetails();
 }

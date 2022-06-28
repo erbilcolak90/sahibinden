@@ -54,10 +54,10 @@ public class AdvertManager implements AdvertService {
     public DataResult<List<Advert>> findAll() {
         return new SuccessDataResult<List<Advert>>("Adverts listed",this.advertDao.findAll());
     }
-    /*
-    public DataResult<List<Advert>> getAdvertWithUserDetails(int advertId){
-        return new SuccessDataResult<List<Advert>>("Advert listed",this.advertDao.getAdvertWithUserDetails(advertId));
+
+    @Override
+    public DataResult<List<Advert>> getAdvertWithUserDetails() {
+        return new SuccessDataResult<List<Advert>>("advert and user details:",this.advertDao.getAdvertWithUserDetails());
     }
-    */
 }
 

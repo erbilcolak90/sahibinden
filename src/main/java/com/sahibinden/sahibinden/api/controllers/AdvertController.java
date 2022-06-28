@@ -39,4 +39,9 @@ public class AdvertController {
     public DataResult<List<Advert>> getAll(){
         return this.advertService.findAll();
     }
+
+    @GetMapping("/getAdvertWithUserDetails")
+    public DataResult<List<Advert>> getAdvertWithUserDetails(){
+        return this.advertService.getAdvertWithUserDetails();
+    }
 }
