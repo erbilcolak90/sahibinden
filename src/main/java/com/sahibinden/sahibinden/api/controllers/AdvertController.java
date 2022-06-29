@@ -30,18 +30,35 @@ public class AdvertController {
         return this.advertService.add(advert);
     }
 
-    /*
-    2.4
-    Getmapping annotasyonu ile (getAllAdverts) findAll metodunu advertService'ten çekiyoruz.
-     */
-
     @GetMapping("/getAllAdverts")
     public DataResult<List<Advert>> getAll(){
         return this.advertService.findAll();
     }
 
+
     @GetMapping("/getAdvertWithUserDetails")
     public DataResult<List<Advert>> getAdvertWithUserDetails(){
         return this.advertService.getAdvertWithUserDetails();
     }
+
+    @GetMapping("/getByAdvertNameContains")
+    public DataResult<List<Advert>> getByNameContains(@RequestParam String name){
+        return this.advertService.getByNameContains(name);
+    }
+
+    @GetMapping("/getAllAdvertsSortedDescWith")
+    public DataResult<List<Advert>> getAllAdvertsSortedDesc(@RequestParam String title){
+        return this.advertService.getAllAdvertsSortedDesc(title);
+    }
+
+    @GetMapping("/getAllAdvertsSortedDesc")
+    public DataResult<List<Advert>> getAllAdvertsSortedDesc(){
+        return this.advertService.getAllAdvertsSortedDesc();
+    }
+
+    @GetMapping("/getAllAdvertsSortedAsc")
+    public DataResult<List<Advert>> getAllAdvertsSortedAsc(@RequestParam String title){
+        return this.advertService.getAllAdvertsSortedAsc(title);
+    }
+
 }

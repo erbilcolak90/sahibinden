@@ -1,6 +1,7 @@
 package com.sahibinden.sahibinden.dataAccess;
 
 import com.sahibinden.sahibinden.entities.Advert;
+import com.sahibinden.sahibinden.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -30,6 +31,17 @@ public interface AdvertDao extends JpaRepository<Advert,Integer> {
      */
     List<Advert> findAll();
 
-    @Query(value = "SELECT * FROM Advert a RIGHT JOIN User u On u.id=a.userId"+" UNION " +"SELECT * FROM Advert a LEFT JOIN User u On u.id=a.userId",nativeQuery = true)
+    List<Advert> getByNameContains(String name);
+
+   // List<User> findAllUser();
+
+    List<Advert> findAllByOrderByCreateDateDesc();
+
+
+    @Query(value = "SELECT a.id,a.name,a.advertNumber,a.price,u.id,u.name,u.surname FROM adverts a Full Join users u On a.userId=u.id ORDER BY u.id",nativeQuery = true)
     List<Advert> getAdvertWithUserDetails();
+
+
+
+
 }

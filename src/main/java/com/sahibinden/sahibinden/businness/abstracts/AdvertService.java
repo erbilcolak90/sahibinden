@@ -3,6 +3,7 @@ package com.sahibinden.sahibinden.businness.abstracts;
 import com.sahibinden.sahibinden.core.utilities.results.DataResult;
 import com.sahibinden.sahibinden.core.utilities.results.Result;
 import com.sahibinden.sahibinden.entities.Advert;
+import com.sahibinden.sahibinden.entities.User;
 
 import java.util.List;
 
@@ -25,4 +26,18 @@ public interface AdvertService {
     DataResult<List<Advert>> findAll();
 
     DataResult<List<Advert>> getAdvertWithUserDetails();
+
+    DataResult<List<Advert>> getByNameContains(String name);
+
+    DataResult<List<Advert>> getAllAdvertsSortedDesc(String title);
+
+    DataResult<List<Advert>> getAllAdvertsSortedAsc(String title);
+
+    DataResult<List<Advert>> getAllAdvertsSortedDesc();
+
+    DataResult<List<Advert>> findAllByOrderByCreateDateDesc();
+
+  //  DataResult<List<User>> findAllUser();
+
+
 }
